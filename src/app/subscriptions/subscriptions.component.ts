@@ -37,15 +37,16 @@ export class SubscriptionsComponent implements OnInit {
     this.subscriptionService.getSubscriptions().subscribe(subs => {
       this.subscriptions = subs.map(sub => ({
         ...sub,
-        memberName: this.findMemberName(+sub.memberId)
+        memberName: this.findMemberName(sub.memberId) // do NOT cast to number
       }));
     });
   }
 
-  findMemberName(memberId: number): string {
-    const member = this.members.find(m => +m.id === memberId); // << Fix here
+  findMemberName(memberId: string | number): string {
+    const member = this.members.find(m => m.id === memberId.toString());
     return member ? member.name : 'Unknown Member';
   }
+  
 
   getSubscriptionDescription(type: string): string {
     switch (type) {

@@ -14,20 +14,26 @@ export class FacilitiesComponent {
   @Input() reservationStartTime: string = '';
 
   @Output() selectedCourtIdChange = new EventEmitter<number>();
+  @Output() selectedCourtPriceChange = new EventEmitter<number>();
   @Output() reservationDateChange = new EventEmitter<string>();
   @Output() reservationStartTimeChange = new EventEmitter<string>();
   @Output() openReservationDialogClicked = new EventEmitter<void>();
 
-  onCourtChange(event: any) {
-    this.selectedCourtIdChange.emit(event.target.value);
+  onCourtChange(value: string) {
+    const id = +value;
+    this.selectedCourtIdChange.emit(id);
+
+    const selectedCourt = this.footballCourts.find(c => c.id === id);
+    const price = selectedCourt?.pricePerHour ?? undefined;
+    this.selectedCourtPriceChange.emit(price);
   }
 
-  onDateChange(event: any) {
-    this.reservationDateChange.emit(event.target.value);
+  onDateChange(value: string) {
+    this.reservationDateChange.emit(value);
   }
 
-  onTimeChange(event: any) {
-    this.reservationStartTimeChange.emit(event.target.value);
+  onTimeChange(value: string) {
+    this.reservationStartTimeChange.emit(value);
   }
 
   openDialog() {

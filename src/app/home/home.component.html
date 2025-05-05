@@ -5,20 +5,24 @@
   (scroll)="scrollTo($event)">
 </app-toolbar>
 <!-- Hero Section -->
-<div class="content" id="hero-section" ></div>
-  <div class="image-container">
-    <img src="assets/fit.webp" alt="Gym Image" class="gym">
-    <div class="overlay-content">
-      <h1 class="main-title">Start Your Fitness Journey With Us</h1>
-      <p class="description">
-        At GymFit, we provide you with state-of-the-art facilities and top trainers to help you reach your fitness goals.
-        Don't waste time, join us today!
-      </p>
-      <button mat-raised-button color="primary" class="join-button" (click)="navigateToLogin()">
-        Join Now
+<div class="content" id="hero-section"></div>
+<div class="image-container">
+  <img src="assets/gymmm.jpg" alt="Gym Background" class="gym">
+  <div class="overlay-content">
+    <h1 class="main-title">Transform Your Body & Mind</h1>
+    <p class="description">
+      Discover GymFit — where dedication meets results. From state-of-the-art equipment to elite coaches, everything you need is here.
+    </p>
+    <div class="cta-buttons">
+      <button mat-raised-button color="primary" class="join-button" (click)="navigateToRegister()">
+        Register Now
+      </button>
+      <button mat-stroked-button color="accent" class="login-button" (click)="navigateToLogin()">
+        Login
       </button>
     </div>
   </div>
+</div>
 
 <!-- Classes Section -->
 <app-class-schedule
@@ -37,16 +41,14 @@
 <!-- Facilities -->
 <div class="our-facilities" id="facilities-section">
   <app-facilities
-    [footballCourts]="footballCourts"
-    [selectedCourtId]="selectedCourtId"
-    [selectedCourtPrice]="selectedCourtPrice"
-    [reservationDate]="reservationDate"
-    [reservationStartTime]="reservationStartTime"
-    (selectedCourtIdChange)="selectedCourtId = $event; updateSelectedCourt()"
-    (reservationDateChange)="reservationDate = $event"
-    (reservationStartTimeChange)="reservationStartTime = $event"
-    (openReservationDialogClicked)="openReservationDialog()">
-  </app-facilities>
+  [footballCourts]="footballCourts"
+  [(selectedCourtId)]="selectedCourtId"
+  [(selectedCourtPrice)]="selectedCourtPrice"
+  [(reservationDate)]="reservationDate"
+  [(reservationStartTime)]="reservationStartTime"
+  (openReservationDialogClicked)="openReservationDialog()"
+></app-facilities>
+
 </div>
 
 <!-- Coaches -->

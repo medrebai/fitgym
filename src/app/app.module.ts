@@ -61,6 +61,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
 import { SubscriptionDialogComponent } from './subscription-dialog/subscription-dialog.component';
 import { SubscriptionSummaryDialogComponent } from './subscription-summary-dialog/subscription-summary-dialog.component';
+import { ReservationModalComponent } from './football-courts/reservation-modal/reservation-modal.component';
 
 
 @NgModule({
@@ -90,7 +91,8 @@ import { SubscriptionSummaryDialogComponent } from './subscription-summary-dialo
     BookSessionDialogComponent,
     ProfileDialogComponent,
     SubscriptionDialogComponent,
-    SubscriptionSummaryDialogComponent
+    SubscriptionSummaryDialogComponent,
+    ReservationModalComponent
   ],
   imports: [
     BrowserModule,

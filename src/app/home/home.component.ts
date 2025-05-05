@@ -14,10 +14,9 @@ import { GymClass } from '../models/class';
 import { Coach } from '../models/coach';
 import { FootballCourt, Reservation } from '../models/football-court';
 import { ProfileDialogComponent } from '../profile-dialog/profile-dialog.component';
-import { ReservationDialogComponent } from '../football-courts/reservation-dialog/reservation-dialog.component';
+import { ReservationModalComponent } from '../football-courts/reservation-modal/reservation-modal.component';
 import { SubscriptionDialogComponent } from '../subscription-dialog/subscription-dialog.component';
 import { Subscription } from '../models/subscription';
-
 
 interface WeeklySlot {
   time: string;
@@ -54,7 +53,7 @@ export class HomeComponent implements OnInit {
     private dialog: MatDialog,
     private router: Router,
     private authService: AuthService,
-    private memberService: MemberService // ✅ Fixed: Proper injection
+    private memberService: MemberService
   ) {}
 
   ngOnInit() {
@@ -64,15 +63,19 @@ export class HomeComponent implements OnInit {
       }
     });
 
-    this.initializeSchedule();
-    this.loadClasses();
-    this.loadCoaches();
     this.loadCourts();
+    this.loadCoaches();
+    this.loadClasses();
+    this.initializeSchedule();
   }
 
   logout() {
     this.authService.logout().then(() => this.router.navigate(['/login']));
   }
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+  }
+  
 
   navigateToDashboard() {
     this.authService.getUser().subscribe(user => {
@@ -85,7 +88,6 @@ export class HomeComponent implements OnInit {
         if (role === 'admin') {
           this.router.navigate(['/dashboard']);
         } else {
-          // Open modal with user profile
           this.memberService.getMember(user.uid).subscribe(member => {
             const ref = this.dialog.open(ProfileDialogComponent, {
               width: '500px',
@@ -103,10 +105,6 @@ export class HomeComponent implements OnInit {
         }
       });
     });
-  }
-
-  navigateToLogin() {
-    this.router.navigate(['/login']);
   }
 
   initializeSchedule() {
@@ -158,28 +156,58 @@ export class HomeComponent implements OnInit {
   }
 
   openReservationDialog(): void {
-    if (!this.selectedCourtId) {
-      this.snackBar.open('Please select a court first.', 'Close', { duration: 3000 });
+    console.log('Court ID:', this.selectedCourtId);
+    console.log('Date:', this.reservationDate);
+    console.log('Start Time:', this.reservationStartTime);
+
+    if (!this.selectedCourtId || !this.reservationDate || !this.reservationStartTime) {
+      this.snackBar.open('Please fill in all reservation details.', 'Close', { duration: 3000 });
       return;
     }
 
-    const ref = this.dialog.open(ReservationDialogComponent, {
-      width: '400px',
-      data: { courtId: this.selectedCourtId }
-    });
+    const selectedCourt = this.footballCourts.find(c => Number(c.id) === Number(this.selectedCourtId));
+    if (!selectedCourt) {
+      console.warn('Selected court not found.');
+      return;
+    }
 
-    ref.afterClosed().subscribe((newReservation: Reservation | undefined) => {
-      if (!newReservation) return;
+    const isTaken = selectedCourt.reservations?.some(r =>
+      r.date === this.reservationDate && r.startTime === this.reservationStartTime
+    );
 
-      const court = this.footballCourts.find(c => c.id === this.selectedCourtId);
-      if (!court) return;
+    if (isTaken) {
+      this.snackBar.open('This time slot is already reserved.', 'Close', { duration: 3000 });
+      return;
+    }
 
-      court.reservations = court.reservations || [];
-      court.reservations.push(newReservation);
+    this.authService.getUser().subscribe(user => {
+      if (!user?.uid) {
+        this.router.navigate(['/login']);
+        return;
+      }
 
-      this.courtSvc.updateFootballCourt(court).subscribe(() => {
-        this.snackBar.open('Reservation saved!', 'Close', { duration: 3000 });
-        this.loadCourts();
+      this.memberService.getMember(user.uid).subscribe(member => {
+        const ref = this.dialog.open(ReservationModalComponent, {
+          width: '500px',
+          data: {
+            courtId: this.selectedCourtId,
+            date: this.reservationDate,
+            startTime: this.reservationStartTime,
+            member
+          }
+        });
+
+        ref.afterClosed().subscribe((result: any) => {
+          if (!result?.reservation) return;
+
+          selectedCourt.reservations = selectedCourt.reservations || [];
+          selectedCourt.reservations.push(result.reservation);
+
+          this.courtSvc.updateFootballCourt(selectedCourt).subscribe(() => {
+            this.snackBar.open('Reservation saved!', 'Close', { duration: 3000 });
+            this.loadCourts();
+          });
+        });
       });
     });
   }
@@ -187,13 +215,13 @@ export class HomeComponent implements OnInit {
   selectPlan(plan: 'basic' | 'premium' | 'platinum') {
     this.authService.getUser().subscribe(user => {
       if (!user?.uid) return;
-  
+
       this.memberService.getMember(user.uid).subscribe(member => {
         const ref = this.dialog.open(SubscriptionDialogComponent, {
           width: '500px',
           data: { plan, member }
         });
-  
+
         ref.afterClosed().subscribe((subscription: Subscription) => {
           if (subscription) {
             this.subscriptionSvc.addSubscription(subscription).subscribe(() => {
@@ -211,4 +239,8 @@ export class HomeComponent implements OnInit {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
+  navigateToRegister(): void {
+    this.router.navigate(['/register']);
+  }
+  
 }

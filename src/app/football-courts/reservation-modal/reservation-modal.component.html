@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Confirm Reservation</h2>
+
+<mat-dialog-content>
+  <p><strong>Name:</strong> {{ member.name }}</p>
+  <p><strong>Email:</strong> {{ member.email }}</p>
+  <p><strong>Date:</strong> {{ date }}</p>
+  <p><strong>Start Time:</strong> {{ startTime }}</p>
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>Number of Players</mat-label>
+    <input matInput type="number" [(ngModel)]="numberOfPlayers" min="1" max="22" />
+  </mat-form-field>
+
+  <label>Equipment Needed:</label><br />
+  <mat-checkbox [(ngModel)]="equipment.ball">Ball</mat-checkbox>
+  <mat-checkbox [(ngModel)]="equipment.bibs">Bibs</mat-checkbox>
+  <mat-checkbox [(ngModel)]="equipment.cones">Cones</mat-checkbox>
+
+  <mat-form-field appearance="fill" style="width: 100%; margin-top: 15px;">
+    <mat-label>Remarks (optional)</mat-label>
+    <textarea matInput [(ngModel)]="remarks"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="confirm()">Confirm</button>
+</mat-dialog-actions>
