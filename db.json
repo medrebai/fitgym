@@ -1,0 +1,361 @@
+{
+  "subscriptions": [
+    {
+      "id": "101",
+      "memberId": 1,
+      "type": "premium",
+      "startDate": "2025-04-01",
+      "endDate": "2025-04-30",
+      "price": 100
+    },
+    {
+      "id": "102",
+      "memberId": 2,
+      "type": "basic",
+      "startDate": "2025-01-01",
+      "endDate": "2025-12-31",
+      "price": 50
+    },
+    {
+      "id": "25d6",
+      "memberId": 1,
+      "type": "premium",
+      "startDate": "2025-04-28",
+      "endDate": "2025-05-28",
+      "price": 75
+    },
+    {
+      "id": "5449",
+      "memberId": 1,
+      "type": "basic",
+      "startDate": "2025-04-28",
+      "endDate": "2025-05-28",
+      "price": 50
+    },
+    {
+      "id": "b451",
+      "memberId": 1,
+      "type": "basic",
+      "startDate": "2025-05-04",
+      "endDate": "2025-06-04",
+      "price": 50
+    },
+    {
+      "id": "0a34",
+      "memberId": 1,
+      "type": "premium",
+      "startDate": "2025-05-04",
+      "endDate": "2025-06-04",
+      "price": 75
+    },
+    {
+      "id": "9a7a",
+      "memberId": 1,
+      "type": "premium",
+      "startDate": "2025-05-04",
+      "endDate": "2025-06-04",
+      "price": 75
+    },
+    {
+      "id": "b10d",
+      "memberId": 1,
+      "type": "premium",
+      "startDate": "2025-05-04",
+      "endDate": "2025-06-04",
+      "price": 75
+    },
+    {
+      "id": "a43c",
+      "memberId": 1,
+      "type": "basic",
+      "startDate": "2025-05-05",
+      "endDate": "2025-06-05",
+      "price": 50
+    },
+    {
+      "id": "e22d",
+      "memberId": 1,
+      "type": "basic",
+      "startDate": "2025-05-05",
+      "endDate": "2025-06-05",
+      "price": 50
+    }
+  ],
+  "members": [
+    {
+      "id": "U8gH2nAb123XyZ",
+      "name": "Mohamed",
+      "email": "aminmoalla7@gmail.com",
+      "phone": "REBAI"
+    },
+    {
+      "id": "kD3rqwUjZuYQL3wV8QJ0FPN8IDn1",
+      "name": "Achref Khemiri",
+      "email": "Achref@gmail.Com",
+      "phone": "123456789"
+    }
+  ],
+  "coaches": [
+    {
+      "Coachid": "1",
+      "name": "Alice Johnson",
+      "specialty": "Yoga",
+      "experience": 7,
+      "photoUrl": "https://via.placeholder.com/150",
+      "sessions": [
+        {
+          "fullName": "Mohamed REBAI",
+          "email": "tester.test@gmail.com",
+          "phone": "52787077",
+          "weight": 50,
+          "height": 190,
+          "preferredTime": "Afternoon",
+          "date": "2025-05-04"
+        },
+        {
+          "fullName": "med rebai",
+          "email": "tester.test@gmail.com",
+          "phone": "52787077",
+          "weight": 80,
+          "height": 190,
+          "preferredTime": "Afternoon",
+          "date": "2025-05-04"
+        },
+        {
+          "fullName": "med rebai",
+          "email": "tester.test@gmail.com",
+          "phone": "52787077",
+          "weight": 123,
+          "height": 123,
+          "preferredTime": "Afternoon",
+          "date": "2025-05-04"
+        },
+        {
+          "fullName": "Last try",
+          "email": "tester.test@gmail.com",
+          "phone": "4431235",
+          "weight": 50,
+          "height": 102,
+          "preferredTime": "Afternoon",
+          "date": "2025-05-04"
+        }
+      ],
+      "id": "137f"
+    },
+    {
+      "Coachid": "3",
+      "name": "dorra",
+      "specialty": "HIIT",
+      "experience": 6,
+      "photoUrl": "https://via.placeholder.com/150",
+      "sessions": [
+        {
+          "fullName": "med rebai",
+          "email": "tester.test@gmail.com",
+          "phone": "52787077",
+          "weight": 70,
+          "height": 190,
+          "preferredTime": "Afternoon",
+          "date": "2025-05-04"
+        }
+      ],
+      "id": "668d"
+    },
+    {
+      "Coachid": "3",
+      "name": "rebai",
+      "specialty": "yogaa",
+      "experience": 8,
+      "iconUrl": "555",
+      "id": "7b71"
+    }
+  ],
+  "classes": [
+    {
+      "id": "1",
+      "name": "Morning Yoga",
+      "category": "Dance",
+      "coachId": 2,
+      "time": "2025-04-28T07:00:00",
+      "price": 50
+    },
+    {
+      "id": "201",
+      "name": "Power Yoga",
+      "category": "Yoga",
+      "coachId": 1,
+      "time": "2025-05-05T06:00:00",
+      "price": 40
+    },
+    {
+      "id": "202",
+      "name": "Cardio Blast",
+      "category": "Cardio",
+      "coachId": 2,
+      "time": "2025-05-06T08:00:00",
+      "price": 50
+    },
+    {
+      "id": "203",
+      "name": "Dance Fit",
+      "category": "Dance",
+      "coachId": 1,
+      "time": "2025-05-07T10:00:00",
+      "price": 45
+    },
+    {
+      "id": "204",
+      "name": "Strength 101",
+      "category": "HIIT",
+      "coachId": 3,
+      "time": "2025-05-08T14:00:00",
+      "price": 60
+    },
+    {
+      "id": "205",
+      "name": "Zumba Time",
+      "category": "Dance",
+      "coachId": 2,
+      "time": "2025-05-09T16:00:00",
+      "price": 35
+    },
+    {
+      "id": "206",
+      "name": "Yoga Stretch",
+      "category": "Yoga",
+      "coachId": 1,
+      "time": "2025-05-10T12:00:00",
+      "price": 30
+    },
+    {
+      "id": "207",
+      "name": "HIIT Burn",
+      "category": "HIIT",
+      "coachId": 3,
+      "time": "2025-05-11T18:00:00",
+      "price": 55
+    },
+    {
+      "id": "208",
+      "name": "Morning Cardio",
+      "category": "Cardio",
+      "coachId": 2,
+      "time": "2025-05-12T06:00:00",
+      "price": 40
+    },
+    {
+      "id": "2",
+      "name": "HIIT for Beginners",
+      "category": "HIIT",
+      "coachId": "1",
+      "time": "2025-04-29T18:00:00",
+      "price": 455
+    },
+    {
+      "id": "2758",
+      "name": "cardio",
+      "category": "Cardio",
+      "coachId": "1",
+      "time": "00:52",
+      "price": 122
+    },
+    {
+      "id": "9f09",
+      "name": "Box",
+      "category": "Cardio",
+      "coachId": "3",
+      "time": "18:00",
+      "price": 45
+    },
+    {
+      "id": "7fce",
+      "name": "Class 1",
+      "category": "Dance",
+      "coachId": "3",
+      "time": "12:00",
+      "price": 80
+    }
+  ],
+  "football-courts": [
+    {
+      "id": "1",
+      "name": "Court A",
+      "location": "City Center",
+      "pricePerHour": 50,
+      "reservations": [
+        {
+          "id": 1,
+          "date": "2025-04-28",
+          "startTime": "10:00",
+          "endTime": "11:00",
+          "memberName": "John Doe"
+        },
+        {
+          "id": 2,
+          "date": "2025-04-28",
+          "startTime": "12:00",
+          "endTime": "13:00",
+          "memberName": "Jane Smith"
+        },
+        {
+          "id": 1745871750034,
+          "date": "2025-12-20",
+          "startTime": "22:12",
+          "endTime": "12:35",
+          "memberId": 519
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Court B",
+      "location": "North Area",
+      "pricePerHour": 45,
+      "reservations": [
+        {
+          "id": 2,
+          "date": "2025-04-29",
+          "startTime": "16:00",
+          "endTime": "17:00",
+          "memberName": "dorra"
+        },
+        {
+          "id": 3,
+          "date": "2025-04-30",
+          "startTime": "18:00",
+          "endTime": "19:00",
+          "memberName": "Jane Smith"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Court C",
+      "location": "South District",
+      "pricePerHour": 60,
+      "reservations": [
+        {
+          "id": 1,
+          "date": "2025-04-28",
+          "startTime": "08:00",
+          "endTime": "09:00",
+          "memberName": "John Doe"
+        },
+        {
+          "id": 2,
+          "date": "2025-04-29",
+          "startTime": "11:00",
+          "endTime": "12:00",
+          "memberName": "Bob Smith"
+        },
+        {
+          "id": 3,
+          "date": "2025-04-30",
+          "startTime": "13:00",
+          "endTime": "14:00",
+          "memberName": "Alice Johnson"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+
+<div class="membership-plans">
+    <!-- Basic Plan -->
+    <div class="plan-card">
+      <h3>Basic</h3>
+      <p>Perfect for beginners</p>
+      <p class="price">$50 /month</p>
+      <ul>
+        <li><mat-icon>check_circle</mat-icon> Gym access</li>
+        <li><mat-icon>check_circle</mat-icon> Free weights area</li>
+        <li><mat-icon>remove_circle</mat-icon> Group classes</li>
+        <li><mat-icon>remove_circle</mat-icon> Personal trainer</li>
+        <li><mat-icon>remove_circle</mat-icon> Sports facilities</li>
+      </ul>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="selectPlan('basic')"
+      >
+        Select Plan
+      </button>
+    </div>
+  
+    <!-- Premium Plan -->
+    <div class="plan-card most-popular">
+      <h3>Premium</h3>
+      <p>Best value for regulars</p>
+      <p class="price">$75 /month</p>
+      <ul>
+        <li><mat-icon>check_circle</mat-icon> Gym access</li>
+        <li><mat-icon>check_circle</mat-icon> Free weights area</li>
+        <li><mat-icon>check_circle</mat-icon> Unlimited group classes</li>
+        <li><mat-icon>check_circle</mat-icon> 2 PT sessions/month</li>
+        <li><mat-icon>remove_circle</mat-icon> Sports facilities</li>
+      </ul>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="selectPlan('premium')"
+      >
+        Select Plan
+      </button>
+    </div>
+  
+    <!-- Platinum Plan -->
+    <div class="plan-card platinum">
+      <h3>Platinum</h3>
+      <p>All-inclusive experience</p>
+      <p class="price">$100 /month</p>
+      <ul>
+        <li><mat-icon>check_circle</mat-icon> Gym access</li>
+        <li><mat-icon>check_circle</mat-icon> Free weights area</li>
+        <li><mat-icon>check_circle</mat-icon> Unlimited group classes</li>
+        <li><mat-icon>check_circle</mat-icon> 4 PT sessions/month</li>
+        <li><mat-icon>check_circle</mat-icon> Full sports facilities</li>
+      </ul>
+      <button
+        mat-raised-button
+        color="accent"
+        (click)="selectPlan('platinum')"
+      >
+        Select Plan
+      </button>
+    </div>
+  </div>

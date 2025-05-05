@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Member Details</h2>
+
+<mat-dialog-content>
+
+  <h3>{{ member.name }}</h3>
+  <p><strong>Email:</strong> {{ member.email }}</p>
+  <p><strong>Phone:</strong> {{ member.phone }}</p>
+
+  <div *ngIf="subscription">
+    <h4>Subscription:</h4>
+    <p><strong>Type:</strong> {{ subscription.type }}</p>
+    <p><strong>Start Date:</strong> {{ subscription.startDate }}</p>
+    <p><strong>End Date:</strong> {{ subscription.endDate }}</p>
+    <p><strong>Price:</strong> ${{ subscription.price }}</p>
+  </div>
+
+  <div *ngIf="reservations.length > 0">
+    <h4>Football Reservations:</h4>
+    <ul>
+      <li *ngFor="let res of reservations">
+        Date: {{ res.date }} - From {{ res.startTime }} to {{ res.endTime }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="!subscription && reservations.length === 0">
+    <p>No subscription or reservations.</p>
+  </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Close</button>
+</mat-dialog-actions>

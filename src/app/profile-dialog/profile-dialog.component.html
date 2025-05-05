@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>My Profile</h2>
+<mat-dialog-content class="profile-form">
+
+  <img *ngIf="editedMember.profilePictureUrl" [src]="editedMember.profilePictureUrl" alt="Profile" class="profile-img" />
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Full Name</mat-label>
+    <input matInput [(ngModel)]="editedMember.name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="editedMember.email" disabled>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Phone</mat-label>
+    <input matInput [(ngModel)]="editedMember.phone">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Weight (kg)</mat-label>
+    <input matInput type="number" [(ngModel)]="editedMember.weight">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Height (cm)</mat-label>
+    <input matInput type="number" [(ngModel)]="editedMember.height">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Fitness Goals</mat-label>
+    <input matInput [(ngModel)]="editedMember.goals">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Preferred Workout Time</mat-label>
+    <mat-select [(ngModel)]="editedMember.preferredWorkoutTime">
+      <mat-option *ngFor="let time of times" [value]="time">{{ time }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Profile Picture URL</mat-label>
+    <input matInput [(ngModel)]="editedMember.profilePictureUrl">
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="updateProfile()">Update</button>
+</mat-dialog-actions>

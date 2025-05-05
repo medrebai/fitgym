@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Add Reservation</h1>
+
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Reservation Date</mat-label>
+    <input matInput [(ngModel)]="reservationDate" type="date">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Start Time</mat-label>
+    <input matInput [(ngModel)]="reservationStartTime" type="time">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>End Time</mat-label>
+    <input matInput [(ngModel)]="reservationEndTime" type="time">
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button color="primary" (click)="addReservation()">Add</button>
+</div>

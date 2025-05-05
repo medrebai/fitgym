@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="toolbar">
+  <div class="logo">
+    <mat-icon>fitness_center</mat-icon>
+    <span>GymFit</span>
+  </div>
+
+  <span class="spacer"></span>
+
+  <!-- Navigation Buttons -->
+  <nav class="nav-links">
+    <button mat-button (click)="scrollTo('classes-section')">Classes</button>
+    <button mat-button (click)="scrollTo('plans-section')">Plans</button>
+    <button mat-button (click)="scrollTo('facilities-section')">Facilities</button>
+    <button mat-button (click)="scrollTo('coaches-section')">Coaches</button>
+  </nav>
+
+  <!-- Icons -->
+  <button mat-icon-button (click)="onDashboard()" matTooltip="Dashboard">
+    <mat-icon>person</mat-icon>
+  </button>
+
+  <button mat-icon-button (click)="onLogout()" matTooltip="Logout">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

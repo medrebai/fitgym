@@ -1,0 +1,42 @@
+<div *ngFor="let court of footballCourts">
+    <h2>{{ court.name }} - {{ court.location }}</h2>
+    <p>Price per hour: ${{ court.pricePerHour }}</p>
+  
+    <h3>Reservations this Week:</h3>
+    
+    <table mat-table [dataSource]="court.reservations || []" class="mat-elevation-z8" *ngIf="court.reservations?.length">
+      <!-- Date Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let res"> {{res.date}} </td>
+      </ng-container>
+  
+      <!-- Time Column -->
+      <ng-container matColumnDef="time">
+        <th mat-header-cell *matHeaderCellDef> Time </th>
+        <td mat-cell *matCellDef="let res"> {{res.startTime}} - {{res.endTime}} </td>
+      </ng-container>
+  
+      <!-- Member Name Column -->
+      <ng-container matColumnDef="member">
+        <th mat-header-cell *matHeaderCellDef> Member </th>
+        <td mat-cell *matCellDef="let res"> {{res.memberName}} </td>
+      </ng-container>
+  
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let res">
+          <button mat-button color="warn" (click)="deleteReservation(court.id, res.id)">Delete</button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="['date', 'time', 'member', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['date', 'time', 'member', 'actions'];"></tr>
+    </table>
+  
+<button mat-raised-button color="primary" (click)="openAddReservationDialog(court.id)">Add Reservation</button>
+  
+    <hr>
+  </div>
+  

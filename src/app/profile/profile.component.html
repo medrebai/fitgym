@@ -1,0 +1,36 @@
+<div *ngIf="isLoading">Loading...</div>
+
+<div *ngIf="!isLoading && member" class="profile-container">
+  <h2>{{ member.name }}'s Profile</h2>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Phone</mat-label>
+    <input matInput [(ngModel)]="member.phone">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Weight (kg)</mat-label>
+    <input matInput type="number" [(ngModel)]="member.weight">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Height (cm)</mat-label>
+    <input matInput type="number" [(ngModel)]="member.height">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Fitness Goal</mat-label>
+    <textarea matInput rows="3" [(ngModel)]="member.goals"></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Preferred Workout Time</mat-label>
+    <mat-select [(ngModel)]="member.preferredWorkoutTime">
+      <mat-option value="Morning">Morning</mat-option>
+      <mat-option value="Afternoon">Afternoon</mat-option>
+      <mat-option value="Evening">Evening</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="saveChanges()">Save Changes</button>
+</div>

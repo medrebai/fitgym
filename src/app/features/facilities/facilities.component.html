@@ -1,0 +1,60 @@
+
+<div class="our-facilities">
+    <h2>Our Facilities</h2>
+    <div class="facility">
+      <h3>Football Courts</h3>
+      <p>Book our professional-grade football pitches</p>
+  
+      <div class="court-item">
+        <h4>Choose a Court</h4>
+        <div class="field">
+          <label for="court-name">Court Name</label>
+          <select
+  id="court-name"
+  [ngModel]="selectedCourtId"
+  (ngModelChange)="onCourtChange($event)"
+  name="court"
+>
+
+            <option *ngFor="let court of footballCourts" [ngValue]="court.id">
+              {{ court.name }} – {{ court.location }}
+            </option>
+          </select>
+        </div>
+  
+        <div class="field">
+          <label for="reservation-date">Date</label>
+          <input
+            matInput
+            type="date"
+            id="reservation-date"
+            name="reservationDate"
+            [(ngModel)]="reservationDate"
+          />
+        </div>
+  
+        <div class="field">
+          <label for="time-slot">Time Slot</label>
+          <select
+            id="time-slot"
+            name="reservationStartTime"
+            [(ngModel)]="reservationStartTime"
+          >
+            <option value="06:00-08:00">06:00 – 08:00</option>
+            <option value="08:00-10:00">08:00 – 10:00</option>
+            <option value="10:00-12:00">10:00 – 12:00</option>
+          </select>
+        </div>
+  
+        <div class="field">
+          <p *ngIf="selectedCourtPrice !== null">
+            <strong>Price: ${{ selectedCourtPrice }}/hour</strong>
+          </p>
+        </div>
+  
+        <button mat-raised-button color="primary" (click)="openDialog()">
+            Check Availability
+          </button>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,26 @@
+.weekly-schedule-table {
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.full-width-table {
+  width: 100%;
+  min-width: 700px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.empty-slot {
+  color: #ccc;
+  font-style: italic;
+}
+.centered-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}

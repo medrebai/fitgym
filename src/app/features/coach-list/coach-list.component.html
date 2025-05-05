@@ -1,0 +1,27 @@
+<div class="meet-our-coaches">
+    <h2>Meet Our Coaches</h2>
+  
+    <div *ngFor="let coach of coaches" class="coach-card">
+      <h3>{{ coach.name }}</h3>
+      <p>{{ coach.specialty }}</p>
+      <div class="rating">
+        <span></span> 
+      </div>
+      <p>{{ coach.experience }} years of experience</p> 
+      <p *ngIf="coach.photoUrl">
+        <img [src]="coach.photoUrl" alt="Coach Photo" class="coach-photo">
+      </p>
+      <p><strong>{{ coach.experience === 1 ? '$80/hour' : '$70/hour' }}</strong></p>
+      <button
+  mat-raised-button
+  [color]="isBooked(coach.Coachid) ? 'accent' : 'primary'"
+  [disabled]="isBooked(coach.Coachid)"
+  class="book-session"
+  (click)="bookSession(coach)">
+  <mat-icon *ngIf="isBooked(coach.Coachid)">done</mat-icon>
+  {{ isBooked(coach.Coachid) ? 'Booked' : 'Book Session' }}
+</button>
+     
+    </div>
+  </div>
+  

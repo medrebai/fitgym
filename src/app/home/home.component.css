@@ -1,0 +1,572 @@
+/* Container that holds the image */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* The image takes full width and height of the viewport */
+  .gym {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  
+  /* The text content will sit on top of the image */
+  .overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4); /* Light black transparent background */
+    border-radius: 10px;
+  }
+  
+  /* Title with a modern font size */
+  .main-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Description text with better readability */
+  .description {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Material button style */
+  .join-button {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for the button */
+  .join-button:hover {
+    background-color: #3f51b5; /* A lighter blue when hovered */
+  }
+  
+  /* Toolbar style */
+  mat-toolbar {
+    font-size: 1.2rem;
+  }
+  
+  mat-icon {
+    font-size: 2rem;
+  }
+  
+  /* Spacer to push the user icon to the right */
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  /* Ensures the content stays visible on top */
+  .content {
+    position: relative;
+    z-index: 1;
+  }
+  .weekly-schedule-container {
+    width: 80%;  /* Adjust the width as per your design needs */
+    margin: 0 auto;  /* Centers the schedule container */
+    overflow-x: auto;  /* Allows horizontal scrolling if the schedule is too wide */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Adds a soft shadow around the schedule */
+    padding: 10px;
+  }
+  
+  .weekly-schedule {
+    width: 60%;
+    table-layout: fixed;  /* Ensures that all columns have equal width */
+  }
+  
+  .weekly-schedule th, .weekly-schedule td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  .weekly-schedule th {
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  .weekly-schedule td {
+    background-color: #f9f9f9;
+  }
+  .class-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .mat-button-toggle-group {
+    display: flex;
+    gap: 10px;  /* Adds space between buttons */
+  }
+  
+  .mat-button-toggle {
+    font-size: 14px;  /* Adjusts the text size */
+    padding: 10px 20px;  /* Adjusts the button size */
+    border-radius: 25px;  /* Adds rounded corners */
+    background-color: #f5f5f5; /* Light background color */
+    transition: background-color 0.3s ease;  /* Smooth background color change on hover */
+  }
+  
+  .mat-button-toggle:hover {
+    background-color: #e0e0e0; /* Change color on hover */
+  }
+  
+  .mat-button-toggle-checked {
+    background-color: #3f51b5;  /* Background color when selected */
+    color: white;  /* Text color when selected */
+  }
+  
+  .mat-button-toggle-checked:hover {
+    background-color: #303f9f; /* Hover effect when selected */
+  }
+  .class-info {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .class-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .class-header h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .category, .duration {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .star-rating {
+    color: gold;
+  }
+  
+  .reviews {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  
+  .description {
+    margin-top: 15px;
+    font-size: 16px;
+  }
+  
+  .book-now {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 16px;
+  }
+  
+  .coach-info p {
+    font-style: italic;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .membership-plans {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+  }
+  
+  .plan-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+  }
+  
+  .plan-card h3 {
+    font-size: 22px;
+  }
+  
+  .price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3f51b5;
+    margin: 15px 0;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+  
+  ul li {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  ul li mat-icon {
+    margin-right: 10px;
+  }
+  
+  button {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  
+  .popular {
+    background-color: #f1f1f1;
+  }
+  
+  .most-popular {
+    background-color: #fce4ec;
+  }
+  
+  .platinum {
+    background-color: #e8f5e9;
+  }
+  
+  .most-popular .price {
+    color: #d32f2f;
+    font-weight: bold;
+  }
+  
+  .popular button, .most-popular button, .platinum button {
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+  }
+  
+  .popular button:hover, .most-popular button:hover, .platinum button:hover {
+    background-color: #303f9f;
+  }
+  .our-facilities {
+  background-color: #f4f4f9;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+  text-align: center;
+}
+
+.our-facilities h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 25px;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+}
+
+.facility {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.facility:hover {
+  transform: translateY(-10px);  /* Slight lift on hover */
+}
+
+.facility h3 {
+  font-size: 22px;
+  color: #4CAF50;
+  margin-bottom: 15px;
+}
+
+.court-item {
+  margin-top: 30px;
+}
+
+.court-item h4 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.court-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field label {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.field input, .field select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.field input[type="date"], .field select {
+  width: 100%;
+}
+
+.field input[type="date"]:focus, .field select:focus {
+  outline: none;
+  border-color: #4CAF50;
+  background-color: #f1f1f1;
+}
+
+.book-court {
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.book-court:hover {
+  background-color: #388E3C; /* Darker green on hover */
+  cursor: pointer;
+}
+
+.book-court:focus {
+  outline: none;
+}
+
+.meet-our-coaches {
+    margin: 40px auto;
+    text-align: center;
+  }
+  
+  .coach-card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .coach-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .coach-card h3 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .coach-card p {
+    font-size: 16px;
+    color: #3f51b5;
+  }
+  
+  .rating {
+    margin: 10px 0;
+  }
+  
+  .book-session {
+    background-color: #3f51b5;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .book-session:hover {
+    background-color:#3f51b5;
+  }
+  
+  .coach-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .footer-toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    font-size: 20px;
+    color: white;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f5f5f5;
+  }
+  
+  .footer-content div {
+    flex: 1;
+    padding: 0 10px;
+  }
+  
+  .footer-content h3 {
+    font-size: 18px;
+    color: #3f51b5; /* Match primary color for headings */
+  }
+  
+  .footer-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-content ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-content ul li a {
+    text-decoration: none;
+    color: #3f51b5; /* Match primary color for links */
+    font-size: 16px;
+  }
+  
+  .footer-content ul li a:hover {
+    color:#3f51b5; /* Accent color for hover effect */
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #3f51b5; /* Primary color for the bottom */
+    color: white;
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+  }
+  .footer {
+    background-color: #3f51b5;/* Use the same color as your nav bar */
+    color: white;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer h4 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: white;
+  }
+  
+  .footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    transition: color 0.3s ease;
+  }
+  
+  .footer ul li a:hover {
+    color: #ffd700; /* You can change this to a golden/yellow for a premium touch */
+  }
+  
+  .footer .quick-links,
+  .footer .contact-info,
+  .footer .opening-hours,
+  .footer .follow-us {
+    flex: 1;
+    padding: 10px;
+    min-width: 250px;
+  }
+  
+  .footer .quick-links h4,
+  .footer .contact-info h4,
+  .footer .opening-hours h4,
+  .footer .follow-us h4 {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .footer .follow-us ul {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .footer .follow-us a {
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .footer .follow-us a:hover {
+    color: #ffd700; /* Golden/yellow for hover effect */
+  }
+  #classes-section,
+#plans-section,
+#facilities-section,
+#coaches-section {
+  scroll-margin-top: 80px;
+}
+.main-content {
+  margin-top: 64px; /* Match toolbar height */
+  padding: 16px;
+}
+

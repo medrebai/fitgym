@@ -1,0 +1,29 @@
+<h1 mat-dialog-title>Add New Coach</h1>
+<div mat-dialog-content>
+  <form [formGroup]="addCoachForm" (ngSubmit)="addCoach()">
+    <mat-form-field>
+      <mat-label>Coach Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Specialty</mat-label>
+      <input matInput formControlName="specialty" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Experience</mat-label>
+      <input matInput type="number" formControlName="experience" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Icon URL</mat-label>
+      <input matInput formControlName="iconUrl" />
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button color="primary" (click)="addCoach()" [disabled]="addCoachForm.invalid">Add Coach</button>
+</div>

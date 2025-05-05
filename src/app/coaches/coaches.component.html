@@ -1,0 +1,16 @@
+<div>
+  <h2>Coaches</h2>
+  <button mat-raised-button color="primary" (click)="openAddCoachForm()">Add New Coach</button>
+
+  <div class="coach-list">
+    <div *ngFor="let coach of coaches" class="coach-card">
+      <img *ngIf="coach.photoUrl" [src]="coach.photoUrl" alt="{{ coach.name }}'s Photo" class="coach-photo" />
+      <h3>{{ coach.name }}</h3>
+      <p>{{ coach.specialty }}</p>
+      <p>Experience: {{ coach.experience }} years</p>
+      
+      <!-- Add the Delete button here -->
+      <button mat-raised-button color="warn" (click)="deleteCoach(coach.Coachid)">Delete</button>
+    </div>
+  </div>
+</div>
