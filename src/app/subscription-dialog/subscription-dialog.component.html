@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>Subscribe to {{ planType | titlecase }} Plan</h2>
+
+<mat-dialog-content class="subscription-form">
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Full Name</mat-label>
+    <input matInput [(ngModel)]="member.name" disabled>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput [(ngModel)]="member.email" disabled>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Phone</mat-label>
+    <input matInput [(ngModel)]="member.phone" disabled>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Address</mat-label>
+    <input matInput [(ngModel)]="address">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Payment Method</mat-label>
+    <mat-select [(ngModel)]="paymentMethod">
+      <mat-option value="Cash">Cash</mat-option>
+      <mat-option value="Credit Card">Credit Card</mat-option>
+      <mat-option value="Bank Transfer">Bank Transfer</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Subscription Duration (Months)</mat-label>
+    <input matInput type="number" min="1" [(ngModel)]="months">
+  </mat-form-field>
+
+  <p class="total-price">Total Price: <strong>{{ calculateTotal() }} TND</strong></p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="confirm()">Confirm</button>
+</mat-dialog-actions>

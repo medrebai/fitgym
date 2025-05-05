@@ -1,11 +1,13 @@
 export interface Subscription {
-
-  id?: number;//ken taw ? 5atre mazelt autentification
-
-  memberId: String;
-
+  id?: string;
+  memberId: string;
   type: 'basic' | 'premium' | 'platinum';
-  startDate: string;  // e.g. "2025-05-01"
-  endDate:   string;  // e.g. "2025-06-01"
-  price:     number;
+  startDate: string;
+  endDate: string;
+  price: number;
+
+  address?: string;
+  paymentMethod?: 'Cash' | 'Card' | 'Bank Transfer';
+  months?: number;
+  fullName?: string; // redundant but usable for summary
 }

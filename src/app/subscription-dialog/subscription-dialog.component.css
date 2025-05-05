@@ -1,0 +1,47 @@
+.subscription-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  
+  mat-form-field.full-width {
+    width: 100%;
+  }
+  
+  h2 {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  
+  mat-dialog-content {
+    padding-bottom: 0;
+  }
+  
+  mat-dialog-actions {
+    padding-top: 12px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  mat-dialog-actions button {
+    min-width: 100px;
+  }
+  
+  .total-price {
+    font-size: 16px;
+    font-weight: 500;
+    text-align: right;
+    margin-top: 10px;
+    color: #2e7d32;
+  }
+  .snackbar-success {
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: 500;
+  }
+  
+  

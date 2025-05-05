@@ -32,8 +32,9 @@ export class SubscriptionService {
   }
 
   // Delete subscription
-  deleteSubscription(id: number): Observable<void> {
+  deleteSubscription(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+  
   
 }

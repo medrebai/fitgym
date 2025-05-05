@@ -5,6 +5,7 @@ import { Subscription } from '../models/subscription';
 import { Member } from '../models/member';
 import { MatDialog } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-subscriptions',
   templateUrl: './subscriptions.component.html',
@@ -55,9 +56,10 @@ export class SubscriptionsComponent implements OnInit {
     }
   }
 
-  deleteSubscription(id: number): void {
+  deleteSubscription(id: string): void {
     this.subscriptionService.deleteSubscription(id).subscribe(() => {
       this.subscriptions = this.subscriptions.filter(subscription => subscription.id !== id);
     });
   }
+  
 }

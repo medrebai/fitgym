@@ -79,6 +79,46 @@
       "startDate": "2025-05-05",
       "endDate": "2025-06-05",
       "price": 50
+    },
+    {
+      "id": "6073",
+      "memberId": "yOSu8RjZeaMA8qZBkwYPE1s29Kz2",
+      "type": "basic",
+      "startDate": "2025-05-05",
+      "endDate": "2025-06-05",
+      "price": 50
+    },
+    {
+      "id": "6ed8",
+      "memberId": "yOSu8RjZeaMA8qZBkwYPE1s29Kz2",
+      "type": "premium",
+      "startDate": "2025-05-05",
+      "endDate": "2025-09-05",
+      "price": 300
+    },
+    {
+      "id": "d404",
+      "memberId": "yOSu8RjZeaMA8qZBkwYPE1s29Kz2",
+      "type": "premium",
+      "startDate": "2025-05-05",
+      "endDate": "2025-09-05",
+      "price": 300
+    },
+    {
+      "id": "6563",
+      "memberId": "yOSu8RjZeaMA8qZBkwYPE1s29Kz2",
+      "type": "premium",
+      "startDate": "2025-05-05",
+      "endDate": "2025-06-05",
+      "price": 75
+    },
+    {
+      "id": "a409",
+      "memberId": "yOSu8RjZeaMA8qZBkwYPE1s29Kz2",
+      "type": "basic",
+      "startDate": "2025-05-05",
+      "endDate": "2025-06-05",
+      "price": 50
     }
   ],
   "members": [
@@ -93,6 +133,17 @@
       "name": "Achref Khemiri",
       "email": "Achref@gmail.Com",
       "phone": "123456789"
+    },
+    {
+      "id": "yOSu8RjZeaMA8qZBkwYPE1s29Kz2",
+      "name": "Test1",
+      "email": "Test1@gmail.com",
+      "phone": "12345678",
+      "weight": 123,
+      "height": 123,
+      "goals": "Better body",
+      "preferredWorkoutTime": "Afternoon",
+      "profilePictureUrl": "\thttps://img-19.commentcamarche.net/WNCe54PoGxObY8P…a5b4c5d99e611/ccmcms-commentcamarche/20456790.jpg"
     }
   ],
   "coaches": [

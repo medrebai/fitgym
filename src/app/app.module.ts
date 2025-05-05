@@ -59,6 +59,8 @@ import { BookSessionDialogComponent } from './coaches/book-session-dialog/book-s
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ProfileDialogComponent } from './profile-dialog/profile-dialog.component';
+import { SubscriptionDialogComponent } from './subscription-dialog/subscription-dialog.component';
+import { SubscriptionSummaryDialogComponent } from './subscription-summary-dialog/subscription-summary-dialog.component';
 
 
 @NgModule({
@@ -86,7 +88,9 @@ import { ProfileDialogComponent } from './profile-dialog/profile-dialog.componen
     CoachListComponent,
     FooterComponent,
     BookSessionDialogComponent,
-    ProfileDialogComponent
+    ProfileDialogComponent,
+    SubscriptionDialogComponent,
+    SubscriptionSummaryDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -8,11 +8,16 @@ import { CoachService } from '../services/coach.service';
 import { FootballCourtService } from '../services/football-court.service';
 import { SubscriptionService } from '../services/subscription.service';
 import { AuthService } from '../services/auth.service';
+import { MemberService } from '../services/member.service';
 
 import { GymClass } from '../models/class';
 import { Coach } from '../models/coach';
 import { FootballCourt, Reservation } from '../models/football-court';
+import { ProfileDialogComponent } from '../profile-dialog/profile-dialog.component';
 import { ReservationDialogComponent } from '../football-courts/reservation-dialog/reservation-dialog.component';
+import { SubscriptionDialogComponent } from '../subscription-dialog/subscription-dialog.component';
+import { Subscription } from '../models/subscription';
+
 
 interface WeeklySlot {
   time: string;
@@ -25,7 +30,6 @@ interface WeeklySlot {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // Data for components
   classes: GymClass[] = [];
   filteredClasses: GymClass[] = [];
   selectedCategory = 'All';
@@ -49,7 +53,8 @@ export class HomeComponent implements OnInit {
     private snackBar: MatSnackBar,
     private dialog: MatDialog,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private memberService: MemberService // ✅ Fixed: Proper injection
   ) {}
 
   ngOnInit() {
@@ -58,14 +63,12 @@ export class HomeComponent implements OnInit {
         this.currentMemberId = user.uid;
       }
     });
-  
+
     this.initializeSchedule();
     this.loadClasses();
     this.loadCoaches();
     this.loadCourts();
   }
-
-  // ---- UI Event Handlers ----
 
   logout() {
     this.authService.logout().then(() => this.router.navigate(['/login']));
@@ -73,25 +76,38 @@ export class HomeComponent implements OnInit {
 
   navigateToDashboard() {
     this.authService.getUser().subscribe(user => {
-      if (user?.uid) {
-        this.authService.getUserRole(user.uid).then(role => {
-          if (role === 'admin') {
-            this.router.navigate(['/dashboard']);
-          } else {
-            this.router.navigate(['/profile']);
-          }
-        });
-      } else {
+      if (!user?.uid) {
         this.router.navigate(['/login']);
+        return;
       }
+
+      this.authService.getUserRole(user.uid).then(role => {
+        if (role === 'admin') {
+          this.router.navigate(['/dashboard']);
+        } else {
+          // Open modal with user profile
+          this.memberService.getMember(user.uid).subscribe(member => {
+            const ref = this.dialog.open(ProfileDialogComponent, {
+              width: '500px',
+              data: member
+            });
+
+            ref.afterClosed().subscribe(updated => {
+              if (updated) {
+                this.memberService.updateMember(updated.id, updated).subscribe(() => {
+                  this.snackBar.open('Profile updated!', 'Close', { duration: 3000 });
+                });
+              }
+            });
+          });
+        }
+      });
     });
   }
 
   navigateToLogin() {
     this.router.navigate(['/login']);
   }
-
-  // ---- Class Schedule ----
 
   initializeSchedule() {
     const times = ['06:00', '08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
@@ -128,13 +144,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // ---- Coaches ----
-
   loadCoaches() {
     this.coachSvc.getCoaches().subscribe(list => this.coaches = list);
   }
-
-  // ---- Courts & Reservation ----
 
   loadCourts() {
     this.courtSvc.getFootballCourts().subscribe(list => this.footballCourts = list);
@@ -172,30 +184,31 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  // ---- Subscriptions ----
-
-  selectPlan(planType: 'basic' | 'premium' | 'platinum') {
-    const today = new Date();
-    const start = today.toISOString().slice(0, 10);
-    const endDate = new Date(today.setMonth(today.getMonth() + 1)).toISOString().slice(0, 10);
-    const priceMap = { basic: 50, premium: 75, platinum: 100 } as const;
-
-    this.subscriptionSvc.addSubscription({
-      memberId: this.currentMemberId,
-      type: planType,
-      startDate: start,
-      endDate,
-      price: priceMap[planType]
-    }).subscribe(() => {
-      this.snackBar.open(`Subscribed to ${planType}!`, 'Close', { duration: 3000 });
+  selectPlan(plan: 'basic' | 'premium' | 'platinum') {
+    this.authService.getUser().subscribe(user => {
+      if (!user?.uid) return;
+  
+      this.memberService.getMember(user.uid).subscribe(member => {
+        const ref = this.dialog.open(SubscriptionDialogComponent, {
+          width: '500px',
+          data: { plan, member }
+        });
+  
+        ref.afterClosed().subscribe((subscription: Subscription) => {
+          if (subscription) {
+            this.subscriptionSvc.addSubscription(subscription).subscribe(() => {
+              this.snackBar.open('Subscription added!', 'Close', { duration: 3000 });
+            });
+          }
+        });
+      });
     });
   }
+
   scrollTo(sectionId: string): void {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   }
-  
-  
 }
