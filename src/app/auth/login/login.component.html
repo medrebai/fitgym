@@ -1,18 +1,19 @@
-<div class="auth-container">
-    <h2>Login</h2>
-  
+<div class="auth-wrapper">
+  <div class="auth-container">
+    <h2>Welcome Back</h2>
+
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Email</mat-label>
-      <input matInput [(ngModel)]="email" type="email">
+      <input matInput [(ngModel)]="email" type="email" placeholder="Enter your email">
     </mat-form-field>
-  
+
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Password</mat-label>
-      <input matInput [(ngModel)]="password" type="password">
+      <input matInput [(ngModel)]="password" type="password" placeholder="Enter your password">
     </mat-form-field>
-  
+
     <button mat-raised-button color="primary" (click)="login()">Login</button>
-  
-    <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+
+    <p *ngIf="errorMessage" class="error-text">{{ errorMessage }}</p>
   </div>
-  
+</div>

@@ -62,7 +62,7 @@ import { ProfileDialogComponent } from './profile-dialog/profile-dialog.componen
 import { SubscriptionDialogComponent } from './subscription-dialog/subscription-dialog.component';
 import { SubscriptionSummaryDialogComponent } from './subscription-summary-dialog/subscription-summary-dialog.component';
 import { ReservationModalComponent } from './football-courts/reservation-modal/reservation-modal.component';
-
+import { NgChartsModule } from 'ng2-charts'; // ✅ correct for ng2-charts v4+
 
 @NgModule({
   declarations: [
@@ -102,6 +102,7 @@ import { ReservationModalComponent } from './football-courts/reservation-modal/r
     ReactiveFormsModule,
     AppRoutingModule,
     RouterModule,
+    NgChartsModule,
     
     // Material
     MatSidenavModule,
@@ -122,6 +123,7 @@ import { ReservationModalComponent } from './football-courts/reservation-modal/r
     MatOptionModule,
     MatTooltipModule,
     CommonModule,
+    
 
     // Firestore
     AngularFirestoreModule,
