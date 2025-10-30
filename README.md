@@ -1,7 +1,3 @@
-Perfect ✅ Here’s a **fully Markdown-ready** version — clean, formatted, and ready to **paste directly into your `README.md`** file on GitHub.
-Just copy it as-is 👇
-
----
 
 ```markdown
 # 🏋️‍♂️ FitGym – Gym Management Web App
