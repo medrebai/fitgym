@@ -191,25 +191,4 @@ firebase deploy
 * Subscription & court reservation modals
 * Profile edit dialog
 
----
 
-## 📄 License
-
-This project is open source under the [MIT License](LICENSE).
-
----
-
-## 👨‍💻 Author
-
-**Mohamed REBAI**
-Final Year Engineering Student – Software & Business Intelligence
-📧 *[Add your contact or LinkedIn/GitHub profile here]*
-
-```
-
----
-
-✅ You can paste this directly into your `README.md` file — it’s already formatted for Markdown rendering on GitHub (headings, code blocks, tables, and emojis).  
-
-Would you like me to add **a small “Class Diagram” section** at the end with your PlantUML code block for extra documentation?
-```
