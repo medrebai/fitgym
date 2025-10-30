@@ -30,16 +30,16 @@ FitGym follows a **modular Angular architecture** separating concerns into featu
 
 src/
 ├── app/
-│   ├── components/            # Reusable UI components
-│   ├── models/                # TypeScript interfaces for data models
-│   ├── services/              # REST API services (MemberService, CoachService, etc.)
-│   ├── pages/                 # Core pages (Dashboard, Login, Register, etc.)
-│   ├── dialogs/               # Angular Material Dialogs for CRUD and view details
-│   ├── app-routing.module.ts  # Route configuration
-│   ├── app.module.ts          # Root module
-│   └── app.component.*        # Entry component
-├── assets/                    # Static assets (images, icons)
-└── environments/              # Environment configs (Firebase, API base URLs)
+│ ├── components/ # Reusable UI components
+│ ├── models/ # TypeScript interfaces for data models
+│ ├── services/ # REST API services (MemberService, CoachService, etc.)
+│ ├── pages/ # Core pages (Dashboard, Login, Register, etc.)
+│ ├── dialogs/ # Angular Material Dialogs for CRUD and view details
+│ ├── app-routing.module.ts # Route configuration
+│ ├── app.module.ts # Root module
+│ └── app.component.* # Entry component
+├── assets/ # Static assets (images, icons)
+└── environments/ # Environment configs (Firebase, API base URLs)
 
 ````
 
